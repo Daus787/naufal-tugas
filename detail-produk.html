@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Produk - Televisi Full HD</title>
+  <link rel="stylesheet" href="css/detail-produk.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Detail produk</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">← Kembali</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Product Detail Section -->
+      <section class="product-detail">
+        <div class="product-image-container">
+          <img
+            src="https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop"
+            alt="Televisi Full HD" class="product-image">
+        </div>
+
+        <div class="product-info">
+          <h2 class="product-title">televisi full HD</h2>
+          <p class="product-stock">stok 212</p>
+          <button class="checkout-button" id="btnPesan">Pesan</button>
+        </div>
+      </section>
+
+      <!-- Description Section -->
+      <section class="description-section">
+        <h3 class="description-title">deskripsi</h3>
+        <p class="description-text">televisi keluaran terbaru layar super jernih suara lebih baik</p>
+      </section>
+    </div>
+  </main>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup-content">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <div class="popup-title">PESANAN DI PROSES!</div>
+      <a href="#" class="home-btn" id="homeBtn">Ok!</a>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    const btnPesan = document.getElementById('btnPesan');
+    const popup = document.getElementById('popup');
+    const homeBtn = document.getElementById('homeBtn');
+
+    // Tampilkan popup saat tombol Bayar Sekarang diklik
+    btnPesan.addEventListener('click', () => {
+      popup.style.display = 'flex';
+    });
+
+    // Tutup popup saat klik tombol kembali ke beranda
+    homeBtn.addEventListener('click', (e) => {
+      e.preventDefault(); // cegah link reload
+      popup.style.display = 'none';
+      // Bisa tambahkan logika redirect ke beranda di sini kalau mau
+      // window.location.href = "index.html";
+    });
+
+    // Tutup popup jika klik di luar popup-content
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>
