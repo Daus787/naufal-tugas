@@ -34,7 +34,7 @@
         <div class="product-info">
           <h2 class="product-title">televisi full HD</h2>
           <p class="product-stock">stok 212</p>
-          <button class="checkout-button" id="btnPesan">Pesan</button>
+          <button class="checkout-button" onclick="location.href='checkout.html'">Pesan</button>
         </div>
       </section>
 
@@ -46,44 +46,7 @@
     </div>
   </main>
 
-  <div class="popup-overlay" id="popup">
-    <div class="popup-content">
-      <div class="success-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-        </svg>
-      </div>
-      <div class="popup-title">PESANAN DI PROSES!</div>
-      <a href="#" class="home-btn" id="homeBtn">Ok!</a>
-    </div>
-  </div>
-
   <script src="js/app.js"></script>
-  <script>
-    const btnPesan = document.getElementById('btnPesan');
-    const popup = document.getElementById('popup');
-    const homeBtn = document.getElementById('homeBtn');
-
-    // Tampilkan popup saat tombol Bayar Sekarang diklik
-    btnPesan.addEventListener('click', () => {
-      popup.style.display = 'flex';
-    });
-
-    // Tutup popup saat klik tombol kembali ke beranda
-    homeBtn.addEventListener('click', (e) => {
-      e.preventDefault(); // cegah link reload
-      popup.style.display = 'none';
-      // Bisa tambahkan logika redirect ke beranda di sini kalau mau
-      // window.location.href = "index.html";
-    });
-
-    // Tutup popup jika klik di luar popup-content
-    popup.addEventListener('click', (e) => {
-      if (e.target === popup) {
-        popup.style.display = 'none';
-      }
-    });
-  </script>
 </body>
 
 </html>

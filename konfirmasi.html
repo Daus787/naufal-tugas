@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metode Pembayaran</title>
+  <link rel="stylesheet" href="css/konfirmasi.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Metode pembayaran</h1>
+
+    <form class="payment-form">
+      <div class="payment-options">
+        <label class="payment-option">
+          <input type="radio" name="payment" value="cod" checked>
+          <span class="payment-name">COD</span>
+          <div class="checkbox">
+            <span class="checkmark">✓</span>
+          </div>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="dana">
+          <span class="payment-name">DANA</span>
+          <div class="checkbox">
+            <span class="checkmark">✓</span>
+          </div>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="payment" value="ovo">
+          <span class="payment-name">OVO</span>
+          <div class="checkbox">
+            <span class="checkmark">✓</span>
+          </div>
+        </label>
+      </div>
+
+    </form>
+    <button id="btnPesan" class="confirm-button">konfirmasi pembayaran</button>
+  </div>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup-content">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <div class="popup-title">PESANAN DI PROSES!</div>
+      <a href="#" class="home-btn" id="homeBtn">Ok!</a>
+    </div>
+  </div>
+
+  <script>
+    const btnPesan = document.getElementById('btnPesan');
+    const popup = document.getElementById('popup');
+    const homeBtn = document.getElementById('homeBtn');
+
+    // Tampilkan popup saat tombol Bayar Sekarang diklik
+    btnPesan.addEventListener('click', () => {
+      popup.style.display = 'flex';
+    });
+
+    // Tutup popup saat klik tombol kembali ke beranda
+    homeBtn.addEventListener('click', (e) => {
+      e.preventDefault(); // cegah link reload
+      popup.style.display = 'none';
+      // Bisa tambahkan logika redirect ke beranda di sini kalau mau
+      // window.location.href = "index.html";
+    });
+
+    // Tutup popup jika klik di luar popup-content
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>
